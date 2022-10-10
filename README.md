@@ -1,10 +1,10 @@
 # mapstatic
 Web Development Project
 
-#Overview
+# Overview
 
-#Install
+# Install
 
-#Documentation
+# Documentation
 
-#Structure
+# Structure
