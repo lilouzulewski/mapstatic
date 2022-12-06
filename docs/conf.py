@@ -56,3 +56,4 @@ html_theme_options = {
 }
 pygments_style = 'monokai'
 html_static_path = ['_static']
+html_logo = '_static/mapstaticlogo.svg'

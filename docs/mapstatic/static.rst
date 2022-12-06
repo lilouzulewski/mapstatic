@@ -1,31 +1,31 @@
 Consumption Prediction
 =======================
-Here, the steps of prediction's work will be detailed in three parts: the data, the preprocess and the model development.
+The steps of that led to the prediction will be detailed in the three parts below: the data, the preprocess, and the model development.
 
 Data  
 ^^^^^
-French consumption data needed to be imported from the `government <https://odre.opendatasoft.com/explore/dataset/eco2mix-regional-cons-def/table/?disjunctive.libelle_region&disjunctive.nature&sort=-date_heure>`_ thanks to following class before being used in mapstatic's prediction part.
+The French consumption data was imported from the `government <https://odre.opendatasoft.com/explore/dataset/eco2mix-regional-cons-def/table/?disjunctive.libelle_region&disjunctive.nature&sort=-date_heure>`_ website linked using the below class before applying the predictive model:
 
 .. class:: datadownloading
 
-This dataset is composed of the french consumption of different types of energy (global, thermal, nuclear, wind, solar, hydraulic,) every thirty minutes since 2013.
+This dataset is composed of the different types of energy (global, thermal, nuclear, wind, solar, hydraulic,) and their respective consumption value in France for every thirty minutes since 2013.
 
 Preprocess
 ^^^^^^^^^^^
-Now that dataset is imported, it has to be classified and cleaned.
+Now that the dataset is imported, it has to be cleaned and prepped for better use.
 
-Indeed, new dataframes are made for each type of energy including only variables of time and values of consumption in MW. The original dataset also contained NaN values (missing values) that had to be replaced by a mean of closed ones.
-Another class was construct to do this job:
+Thus, new dataframes were deduced for each type of energy including only variables of time and values of consumption in MW. The original dataset also contained NaN values (missing values) that had to be replaced by the mean of closer values.
+Another class was introduced to do this job:
 
 .. class:: datashaping
 
-If one only wants to view the thermal dataframe for instance, one just has to write the following command in a python editor:
+If one wishes to view only the thermal dataframe for instance, simply type the following command in a python editor:
 
 .. code-block:: python
 
     print(datashaping.datashaping.solardata())
 
-The attempted output is a table like below:
+The output resembles the table below:
 
 +-------------+----------+----------+
 |*date*       |*hour*    |*thermal* |
@@ -47,18 +47,18 @@ Modelisation
 ^^^^^^^^^^^^^
 How to use ?
 """"""""""""
-In order to predict the consumption of any energy on the 8th of December 2022, a last class was created.
+In order to predict the consumption of any energy on the 8th of December 2022, one last class was created.
 
 .. class:: datamodeling
 
-This class asks the user to choose a certain type of energy and returns a dataframe of the predicted consumption every thirty minutes and its associated graph.
-One just has to write a command in an python editor as follows:
+This class asks the user to choose a certain type of energy and returns a dataframe of the predicted consumption every thirty minutes along with its associated graph.
+Simply type in the following command in an python editor:
 
 .. code-block:: python
 
     print(prediction.dataset())
 
-Let's take the former example. If user writes 'thermal', the ouput will be:
+Let's take the former example, if the user writes 'thermal', the ouput will be:
 
 +----------+-------------+
 |*hour*    |*thermal*    |
@@ -84,10 +84,10 @@ Then, the following graph will be displayed:
 
 What is the model behind ?
 """"""""""""""""""""""""""
-In order to predict consumption of all different types of energy, we had choosen to use a simple and understable method. Indeed, other methods are available but they need to know about time series which are a rather complicated mathematical problem.
-Choosen method was to calculate some means of data.
+In order to predict consumption of all different types of energy, we chose to use a simple and understable method. Evidently, other methods are available but prerequisited knowledge on time series would be necessary which is a rather complicated mathematical field.
+The method chosen relied on means.
 
-First, we observed the behaviour of all energies'consumptions since 2013 to distinguish a tendency. For that, we used the ``datashaping`` class plotting all energies'dataframes.
+First, we observed the behaviour of all energies' consumptions since 2013 to distinguish a tendency. For that, we used the ``datashaping`` class to plot each energy according to its dataframe values.
 
 .. code-block:: python
 
@@ -103,13 +103,13 @@ Here, there is an annual pattern and not a significative increase or decrease of
  .. image:: ../_images/globalconsumption.pdf
    :align: center
 
-This explains the fact that we have choosen to select all the data of global consumption from December of each year since 2013 to predict its value on the 8th December of 2022 thanks to the following class:
+This explains the fact that we have chosen to select all the data of global consumption from December of each year since 2013 to predict its value on the 8th December of 2022 using the following class:
 
 .. class:: prediction
 
-The previous class selects the right data, averages them and finally plots them. As explained, the selected data depends on observable behaviour of dataframes.
+The previous class selects the correct data, averages them, and finally, plots them. As explained, the selected data depends on observable behaviour from the dataframes.
 
-Of course, there are several other parameters that we could take into account to have a better prediction like temperature, cost of each energy and man others that we don't have access to.
+Surely, there are several other parameters that could be taken into account in order to have a better prediction (like temperature, cost of each energy, etc.). Though, with the data at hand, we did't have access to many parameters that come at play in predicting accurately the consumption rate.
 
 
 

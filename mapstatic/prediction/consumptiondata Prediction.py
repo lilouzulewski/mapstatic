@@ -17,18 +17,31 @@ import csv
 import plotly.express as px
 import pooch  
 from IPython import get_ipython
-from prophet import Prophet
 from statsmodels.tools.eval_measures import rmse
 from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
-from prophet.plot import plot_components_plotly
-from prophet.plot import plot_plotly
 import pandas as dp
-
+%matplotlib inline
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.set()
+from statsmodels.tools.eval_measures import rmse
+from sklearn.model_selection import train_test_split
+import matplotlib.pyplot as plt
+import pylab
+from statsmodels.tools.eval_measures import rmse
+from sklearn.model_selection import train_test_split
+from statsmodels.tsa.seasonal import seasonal_decompose
+from statsmodels.tsa.api import SimpleExpSmoothing 
+from scipy import stats
+from sklearn.linear_model import LinearRegression
+import matplotlib as mpl
 
 
 
 #......DATA 2020............................................................
+class data():
+    
 url = "https://bit.ly/3V81yIg"
 path_target = "./eco2mix-national-cons-def(3).csv"
 path, fname = os.path.split(path_target)
@@ -136,15 +149,9 @@ df.head()
 #____________________visualisation des données_________
 px.area(y='Consommation (MW)',data_frame= df)
 df.resample('Y').mean().plot()
-df1 = df.reset_index()
-df1.rename(columns = {'Consommation (MW)': 'y', 'Temps':'ds'})
-plt.plot(df1['y'], label='Consumption')
-df1.plot(x='ds',y='y', figsize=(18,6))
-#___________________________Prediction avec prophet____________
-df1['ds']= pd.to_datetime(df1['ds'], format='%Y-%m-%d').dt.date
-model= Prophet()
-model.fit(df1)
-days=48*5 # heure * nombre de jour
-future = model.fit(df1).make_future_dataframe(periods=days, freq="15T", include_history=False,daily_seasonality=True)
-forcast = model.predict(future)
-fig1=model.plot(forecast)
+df = df.reset_index()
+df.rename(columns = {'Consommation (MW)': 'y', 'Temps':'ds'})
+plt.plot(df['y'], label='Consumption')
+df.plot(x='ds',y='y', figsize=(18,6))
+#___________________________Prediction à l'aide de la moyenne mobile____________
+df['MEAN_Consumption']=df['Consommation (MW)'].rolling(window=40).mean()

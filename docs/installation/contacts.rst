@@ -1,11 +1,11 @@
 Contacts
 =========
 
-If one has any remark or improvment, one can fill out a pull request on `Github`_.
+If there are any remarks or notes you wish to make, kindly reach out to us or make a pull request on `Github`_.
 
 .. _Github: https://github.com/rimhajal/mapstatic
 
-One can also reach us using the email adresses just below :
+Our email addresses:
 
     * rim.alhajal@etu.umontpellier.fr
     * thiziri.abchiche@etu.umontpellier.fr

@@ -1,3 +1,4 @@
+#%%
 #importing modules
 import pandas as pd
 import datadownloading
@@ -57,3 +58,5 @@ datashaping.solardata().plot(figsize=(20, 5), title="French Solar Energy Consump
 datashaping.hydraulicdata().plot(figsize=(20, 5), title="French Hydraulic Energy Consumption Since 2013", xlabel='Date', ylabel='MW')
 
 
+
+# %%

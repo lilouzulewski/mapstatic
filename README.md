@@ -1,6 +1,6 @@
 <p align="center">
 <strong>MAPSTATIC</strong> <br>
-<img src="./documentation/_static/clearlogo.svg" style="vertical-align:middle" width="500" height='200' class='center' alt='logo'>
+<img src="./docs/_static/clearlogo.svg" style="vertical-align:middle" width="500" height='200' class='center' alt='logo'>
 </p>
 
 ## Overview
