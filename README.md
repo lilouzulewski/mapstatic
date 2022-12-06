@@ -17,7 +17,7 @@ In order to install this package, one first has to sastisfy all the python packa
 
 ## Documentation
 
-A documentation of this package is available [here](https://mapstatic.readthedocs). One can find some use's examples and illustrations of ***mapstatic*** at the [gallery](?).
+A documentation of this package is available [here](https://lilouzulewski.github.io/mapstatic/). One can find some use's examples and illustrations of ***mapstatic*** at the gallery.
 
 ## Structure
 
